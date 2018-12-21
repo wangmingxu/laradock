@@ -115,6 +115,18 @@ services:
         - frontend
         - backend
 
+### Node ##############################################
+    node:
+      build:
+        context: ./node
+      volumes:
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+      ports:
+        - "${NODE_PORT}:3000"
+      networks:
+        - frontend
+        - backend
+
 ### PHP-FPM ##############################################
     php-fpm:
       build:
